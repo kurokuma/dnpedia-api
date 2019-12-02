@@ -51,6 +51,18 @@ class DnPediaAPIBase(object):
         }
     
     def search(self, keyword, match_type="contains", days=1, mode_type="recentlyAdded"):
+        """
+        Arguments:
+            keyword {str} -- search keyword
+        
+        Keyword Arguments:
+            match_type {str} -- [startswith/endswith/contains (default: {"contains"})
+            days {int} -- Where (default: {1})
+            mode_type {str} -- recentlyAdded/recentlyDeleted/currentZones (default: {"recentlyAdded"})
+        
+        Returns:
+            [type] -- json
+        """
         query = self.create_query(
             keyword=self.MATCH_TYPE[match_type].format(keyword=keyword),
             columns=self.COLUMNS_TYPE[mode_type],
