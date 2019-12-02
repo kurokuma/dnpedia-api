@@ -6,7 +6,7 @@ class DnPediaAPIBase(object):
     BASE_URL = "https://dnpedia.com/tlds/ajax.php"
 
     BASE_HEADER = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+        "User-Agent": "DnPedia API wrapper for Python",
         "Accept": "application/json, text/javascript, */*; q=0.01",
         "Accept-Encoding": "gzip, deflate, br",
         "Referer": "https://dnpedia.com/tlds/search.php",
@@ -80,7 +80,4 @@ class DnPediaAPIBase(object):
             r.encoding = r.apparent_encoding
             return r.json()
         else:
-            print("err! invalid query? ->", query)
-            print("err! status_code ->", r.status_code)
-            print("err! response ->", r.text)
             return {}
